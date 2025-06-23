@@ -1,0 +1,145 @@
+{
+    "designSystem": {
+      "name": "Retro Arcade Meme",
+      "description": "A design system that emulates the feel of classic 8-bit and 16-bit arcade games, particularly 'Frogger'. It's characterized by a stark, high-contrast color scheme, a single chunky and playful font, and a 'puffy' or 'inset' 3D effect on all text and button elements. The design is intentionally simple, bold, and nostalgic.",
+      "coreStyle": {
+        "definingEffect": "Puffy Inset Text & Borders",
+        "description": "The most crucial visual element is the use of a subtle, darker inner shadow or stroke on all text and button borders. This creates a soft, 'puffy' 3D effect that makes elements look like they are embossed into the screen or made of soft plastic, reminiscent of old game titles and UI.",
+        "cssImplementation": "text-shadow: 2px 2px 0px #216E21; /* Example for text */ box-shadow: inset 0 0 0 3px #216E21; /* Example for buttons */"
+      },
+      "colors": {
+        "palette": {
+          "primary": {
+            "value": "#2E9D2E",
+            "description": "A vibrant, classic 'arcade green' that serves as the universal background color."
+          },
+          "surface": {
+            "value": "#FFFFFF",
+            "description": "Pure white used for all interactive elements like buttons and cards."
+          },
+          "text": {
+            "onPrimary": "#FFFFFF",
+            "onSurface": "#2E9D2E",
+            "description": "Text is white when on the green background and green when on a white surface."
+          },
+          "shadow": {
+            "value": "#216E21",
+            "description": "A darker shade of the primary green, used exclusively for the 'puffy' inset shadow/stroke effect to create depth."
+          },
+          "accent": {
+            "value": "#000000",
+            "description": "Solid black used for specific elements, like the background of the 'X' social icon."
+          }
+        }
+      },
+      "typography": {
+        "fontFamily": {
+          "primary": "'Lilita One', 'Fredoka One', 'Bangers', cursive",
+          "description": "A single, very bold, chunky, and rounded display font is used for ALL text on the site, including headings, paragraphs, and navigation. This is fundamental to the cohesive, cartoonish style."
+        },
+        "styles": [
+          {
+            "name": "Universal Text Style",
+            "fontFamily": "var(--typography-fontFamily-primary)",
+            "fontWeight": 700,
+            "textTransform": "uppercase",
+            "color": "var(--colors-text-onPrimary)",
+            "lineHeight": 1.4,
+            "textShadow": "2px 2px 0px var(--colors-shadow-value)",
+            "description": "All text shares this base style, with only font-size changing."
+          },
+          {
+            "name": "Heading",
+            "extends": "Universal Text Style",
+            "fontSize": "clamp(2rem, 6vw, 3rem)"
+          },
+          {
+            "name": "Body",
+            "extends": "Universal Text Style",
+            "fontSize": "clamp(1rem, 3vw, 1.25rem)"
+          },
+          {
+            "name": "Data/Stats",
+            "extends": "Universal Text Style",
+            "fontSize": "clamp(1.2rem, 4vw, 1.5rem)",
+            "description": "Used for tokenomics figures like 'SUPPLY' and 'TAX'."
+          }
+        ]
+      },
+      "layout": {
+        "structure": "Single-column, centered",
+        "containerMaxWidth": "800px",
+        "sectionSpacing": "60px",
+        "elementSpacing": "24px",
+        "description": "The layout is extremely simple and direct, with generous spacing between distinct sections to avoid clutter."
+      },
+      "components": {
+        "button": {
+          "base": {
+            "backgroundColor": "var(--colors-surface-value)",
+            "borderRadius": "9999px",
+            "padding": "12px 32px",
+            "border": "3px solid var(--colors-text-onSurface)",
+            "boxShadow": "inset 0px 0px 0px 3px var(--colors-shadow-value)",
+            "transition": "transform 0.1s ease-in-out"
+          },
+          "textStyle": {
+            "extends": "typography.styles.Heading",
+            "fontSize": "clamp(1.5rem, 5vw, 2.25rem)",
+            "color": "var(--colors-text-onSurface)",
+            "textShadow": "2px 2px 0px var(--colors-surface-value), 4px 4px 0px var(--colors-shadow-value)"
+          },
+          "hover": {
+            "transform": "scale(1.05)"
+          },
+          "active": {
+            "transform": "scale(0.98)"
+          }
+        },
+        "card": {
+          "backgroundColor": "var(--colors-surface-value)",
+          "borderRadius": "24px",
+          "padding": "16px",
+          "border": "2px solid var(--colors-shadow-value)",
+          "overflow": "hidden",
+          "description": "Used to contain illustrative content, like the main app icon or the tokenomics banner."
+        },
+        "socialIcon": {
+          "style": "Icon in a container",
+          "container": {
+            "width": "50px",
+            "height": "50px",
+            "borderRadius": "12px",
+            "display": "flex",
+            "alignItems": "center",
+            "justifyContent": "center"
+          },
+          "variants": {
+            "dark": {
+              "backgroundColor": "var(--colors-accent-value)",
+              "iconColor": "var(--colors-surface-value)"
+            }
+          }
+        },
+        "contractAddress": {
+          "fontFamily": "'VT323', 'Courier New', monospace",
+          "fontSize": "1rem",
+          "color": "var(--colors-text-onPrimary)",
+          "letterSpacing": "0.05em",
+          "wordBreak": "break-all",
+          "textShadow": "1px 1px 0px var(--colors-shadow-value)",
+          "description": "The only element that breaks the primary font rule, using a pixel/monospace font for authenticity."
+        }
+      },
+      "illustrationStyle": {
+        "type": "Modern 2D Cartoon",
+        "characteristics": [
+          "Thick, clean outlines.",
+          "Simple, flat color fills (cel-shading).",
+          "Bold, expressive character design.",
+          "High-contrast and vibrant."
+        ],
+        "usage": "The frog mascot is the central visual anchor, used as an app icon and in banners."
+      }
+    }
+  }
